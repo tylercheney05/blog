@@ -20,6 +20,19 @@ class PagesController < ApplicationController
     end
   end
   def edit
+    @page = Page.find(params[:id])
+    render component: 'PageEdit', props: { page: @page }
+  end
+  def update
+    @page = Page.find(params[:id])
+    if @page.update(pages_params)
+      redirect_to pages_path
+    end
+  end
+  def destroy
+    @page = Page.find(params[:id])
+    @page.destroy
+    redirect_to pages_path
   end
   private
     def pages_params

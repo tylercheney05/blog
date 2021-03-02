@@ -11,6 +11,8 @@ const Pages = ({ pages }) => (
           <a href={ url + p.id }>
             show
           </a>
+          <a href={ url + p.id + '/edit'}>edit</a>
+          <a href={ url + p.id} data-method="delete">delete</a>
         </li>
       ))}
     </ul>
